@@ -70,6 +70,23 @@ export default function App() {
                 onPress={toggleCameraFacing}>
                 <Text style={styles.text}>Flip Camera</Text>
               </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => setZoom(zoom + 0.1)}>
+                <Text style={styles.text}>Add Zoom</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => setZoom(zoom - 0.1)}>
+                <Text style={styles.text}>Remove Zoom</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => setZoom(0)}>
+                <Text style={styles.text}>Set zoom to 0</Text>
+              </TouchableOpacity>
+              <Text style={styles.text}>Zoom: {zoom}</Text>
             </View>
           </CameraView>
         </GestureDetector>
@@ -92,9 +109,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
-    flexDirection: 'row',
-    backgroundColor: 'transparent',
-    margin: 64,
   },
   button: {
     flex: 1,
@@ -105,5 +119,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: 'white',
+    alignSelf: 'flex-end',
   },
 });
